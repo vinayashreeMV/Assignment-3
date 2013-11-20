@@ -1,0 +1,25 @@
+Assignment-3
+============
+DAVIK VIRTUAL MACHINE INSTRUCTIONS:
+Op & Format	Mnemonic / Syntax	Arguments Description
+00 10x.	nop		 Waste cycles
+01 12x 	move vA, vB	A: destination register (4 bits)
+B: source register (4 bits) 	Move the contents of one non-object register to another.
+02 22x	move/from16 vAA, vBBBB	A: destination register (8 bits)
+B: source register (16 bits)	Move the contents of one non-object register to another.
+03 32x	move/16 vAAAA, vBBBB	A: destination register (16 bits)
+B: source register (16 bits)	Move the contents of one non-object register to another
+04 12x	move-wide vA, vB	A: destination register pair (4 bits)
+B: source register pair (4 bits)	Move the contents of one register-pair to another. 
+Note: It is legal to move from vN to either vN-1 or vN+1, so implementations must arrange for both halves of a register pair to be read before anything is written.
+
+05 22x	move-wide/from16 vAA, vBBBB	A: destination register pair (8 bits)
+B: source register pair (16 bits)	Move the contents of one register-pair to another. 
+Note: Implementation considerations are the same as move-wide, above.
+
+06 32x	move-wide/16 vAAAA, vBBBB	A: destination register pair (16 bits)
+B: source register pair (16 bits	Move the contents of one register-pair to another. 
+
+07 12x	move-object vA, vB	A: destination register (4 bits)
+B: source register (4 bits)	Move the contents of one object-bearing register to another.
+
